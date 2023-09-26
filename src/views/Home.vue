@@ -6,19 +6,19 @@
       </v-avatar>
 
       <v-tabs v-model="tab" grow>
-        <v-tab value="introduction">Introduction</v-tab>
-        <v-tab value="technical-skills">Technical Skills</v-tab>
-        <v-tab value="projects">Projects</v-tab>
+        <v-tab :value="0">Introduction</v-tab>
+        <v-tab :value="1">Technical Skills</v-tab>
+        <v-tab :value="2">Projects</v-tab>
       </v-tabs>
 
-      <v-window v-model="tab">
-        <v-window-item value="introduction">
+      <v-window v-model="tab" class="fill-height" @wheel="onWheel">
+        <v-window-item :value="0">
           <Introduction />
         </v-window-item>
-        <v-window-item value="technical-skills">
+        <v-window-item :value="1">
           <TechnicalSkills />
         </v-window-item>
-        <v-window-item value="projects">
+        <v-window-item :value="2">
           <Projects />
         </v-window-item>
       </v-window>
@@ -33,4 +33,19 @@ import Introduction from '@/components/Introduction.vue';
 import Projects from '@/components/Projects.vue';
 
 const tab = ref(0);
+let lastWheelTimestamp = 0;
+const onWheel = (e: WheelEvent) => {
+  // Delay wheel event to prevent scrolling too fast
+  const now = Date.now();
+  if (now - lastWheelTimestamp < 250) {
+    return;
+  }
+  lastWheelTimestamp = now;
+
+  if (e.deltaY < 0) {
+    tab.value = tab.value === 0 ? 2 : tab.value - 1;
+  } else {
+    tab.value = tab.value === 2 ? 0 : tab.value + 1;
+  }
+};
 </script>
