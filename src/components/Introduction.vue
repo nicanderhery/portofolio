@@ -1,19 +1,12 @@
 <template>
-  <v-container class="fill-height">
-    <v-row>
-      <v-col>
-        <h1 class="text-h2 font-weight-light pb-1">HI,</h1>
-        <h1 class="text-h3 font-weight-light pb-1">My name is Agustinus Nicander Hery</h1>
-        <v-row class="flex justify-center pb-3">
-          <h1 class="text-h3 font-weight-light pr-3">a.k.a</h1>
-          <h1 class="text-h3 font-weight-bold">Nic</h1>
-        </v-row>
-        <h1 class="text-h4 font-weight-light pb-1">
-          I am a computer science student at
-          <a href="https://h-da.de/">Hochschule Darmstadt</a> and currently in my 6th semester.
-        </h1>
-      </v-col>
-    </v-row>
+  <v-container>
+    <v-col>
+      <h1 class="text-h4 text-lg-h2 text-left pb-5">Welcome to my Portofolio website!</h1>
+      <h1 class="text-h6 text-lg-h4 text-left">
+        My name is Agustinus Nicander Hery, and you can call me Nic. I am a computer science student
+        at <a href="https://h-da.de/">Hochschule Darmstadt</a> and currently in my 6th semester.
+      </h1>
+    </v-col>
   </v-container>
 </template>
 <script lang="ts" setup>
