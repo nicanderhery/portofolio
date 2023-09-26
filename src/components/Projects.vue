@@ -1,11 +1,5 @@
 <template>
-  <v-container class="fill-height">
-    <v-row>
-      <v-col>
-        <h1 class="text-h2 font-weight-light pb-1">TODO PROJECTS</h1>
-      </v-col>
-    </v-row>
-  </v-container>
+  <v-container> TODO</v-container>
 </template>
 <script lang="ts" setup>
 //
