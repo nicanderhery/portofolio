@@ -11,7 +11,7 @@
         <v-tab :value="2">Projects</v-tab>
       </v-tabs>
 
-      <v-window v-model="tab" class="fill-height" @wheel="onWheel">
+      <v-window v-model="tab" class="fill-height" direction="vertical" @wheel="onWheel">
         <v-window-item :value="0">
           <Introduction />
         </v-window-item>
