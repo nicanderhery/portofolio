@@ -8,7 +8,7 @@
       <v-tabs v-model="tab" grow>
         <v-tab :value="0">Introduction</v-tab>
         <v-tab :value="1">Technical Skills</v-tab>
-        <v-tab :value="2">Projects</v-tab>
+        <v-tab :value="2">Contact Me</v-tab>
       </v-tabs>
 
       <v-window v-model="tab" class="fill-height" direction="vertical" @wheel="onWheel">
@@ -19,7 +19,7 @@
           <TechnicalSkills />
         </v-window-item>
         <v-window-item :value="2" style="height: inherit">
-          <Projects />
+          <ContactMe />
         </v-window-item>
       </v-window>
     </v-responsive>
@@ -28,7 +28,7 @@
 
 <script lang="ts" setup>
 import Introduction from '@/components/Introduction.vue';
-import Projects from '@/components/Projects.vue';
+import ContactMe from '@/components/ContactMe.vue';
 import TechnicalSkills from '@/components/TechnicalSkills.vue';
 import { ref } from 'vue';
 
