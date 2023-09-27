@@ -5,9 +5,12 @@
  */
 
 // https://vuetifyjs.com/features/sass-variables/`
-// @use 'vuetify/settings' with (
+@use 'vuetify/settings' with (
 //   $color-pack: false
-// );
+  $window-transition: .8s cubic-bezier(1, .8, .45, 1),
+);
 
 // Hide scrollbar
-html { overflow-y: auto }
+html {
+  overflow-y: hidden
+}

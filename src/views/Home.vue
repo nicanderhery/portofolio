@@ -12,13 +12,13 @@
       </v-tabs>
 
       <v-window v-model="tab" class="fill-height" direction="vertical" @wheel="onWheel">
-        <v-window-item :value="0">
+        <v-window-item :value="0" style="height: inherit">
           <Introduction />
         </v-window-item>
-        <v-window-item :value="1">
+        <v-window-item :value="1" style="height: inherit">
           <TechnicalSkills />
         </v-window-item>
-        <v-window-item :value="2">
+        <v-window-item :value="2" style="height: inherit">
           <Projects />
         </v-window-item>
       </v-window>
@@ -37,7 +37,7 @@ let lastWheelTimestamp = 0;
 const onWheel = (e: WheelEvent) => {
   // Delay wheel event to prevent scrolling too fast
   const now = Date.now();
-  if (now - lastWheelTimestamp < 250) {
+  if (now - lastWheelTimestamp < 800) {
     return;
   }
   lastWheelTimestamp = now;
