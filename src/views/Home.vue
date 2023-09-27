@@ -27,10 +27,10 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
-import TechnicalSkills from '@/components/TechnicalSkills.vue';
 import Introduction from '@/components/Introduction.vue';
 import Projects from '@/components/Projects.vue';
+import TechnicalSkills from '@/components/TechnicalSkills.vue';
+import { ref } from 'vue';
 
 const tab = ref(0);
 let lastWheelTimestamp = 0;
