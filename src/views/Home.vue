@@ -27,8 +27,8 @@
 </template>
 
 <script lang="ts" setup>
-import Introduction from '@/components/Introduction.vue';
 import ContactMe from '@/components/ContactMe.vue';
+import Introduction from '@/components/Introduction.vue';
 import TechnicalSkills from '@/components/TechnicalSkills.vue';
 import { ref } from 'vue';
 
