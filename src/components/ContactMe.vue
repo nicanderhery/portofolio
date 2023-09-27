@@ -31,6 +31,7 @@
     </v-dialog>
   </v-container>
 </template>
+
 <script lang="ts" setup>
 import emailjs from 'emailjs-com';
 import { Ref, ref } from 'vue';

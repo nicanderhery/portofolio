@@ -9,6 +9,7 @@
     </v-row>
   </v-container>
 </template>
+
 <script lang="ts" setup>
 import { categories } from '@/data';
 
