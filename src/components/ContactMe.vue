@@ -1,14 +1,12 @@
 <template>
   <v-container>
     <h1 class="text-h4 text-lg-h3 text-center pb-5">Contact me through this form!</h1>
-
     <v-form ref="form" @submit.prevent="sendEmail">
       <v-text-field v-model="name" :rules="nameRules" label="Name" required />
       <v-text-field v-model="email" :rules="emailRules" label="Email" required />
       <v-textarea v-model="message" :rules="messageRules" label="Message" required />
       <v-btn block type="submit">Send</v-btn>
     </v-form>
-
     <v-dialog v-model="dialogSuccess" width="auto">
       <v-card>
         <v-card-title class="headline">Thank you for your message!</v-card-title>
