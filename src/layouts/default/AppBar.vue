@@ -21,5 +21,10 @@ const toggleTheme = () => {
     ? 'mdi-moon-waning-crescent'
     : 'mdi-white-balance-sunny';
   buttonText.value = theme.global.current.value.dark ? 'Dark mode' : 'Light mode';
+  localStorage.setItem('theme', theme.global.name.value);
 };
+const darkMode = localStorage.getItem('theme') === 'dark';
+if (darkMode) {
+  toggleTheme();
+}
 </script>
