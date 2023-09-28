@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar flat>
+  <v-app-bar class="bg-transparent" flat>
     <v-app-bar-title />
     <v-btn @click="toggleTheme">
       <v-icon>{{ buttonIcon }}</v-icon>
