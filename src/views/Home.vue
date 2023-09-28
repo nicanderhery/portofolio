@@ -1,7 +1,7 @@
 <template>
   <v-container class="fill-height">
     <v-responsive class="align-top text-center fill-height">
-      <div class="h-screen d-flex flex-column justify-center align-center">
+      <div class="d-flex flex-column justify-center align-center" style="height: 100vh">
         <v-avatar size="12rem">
           <v-img src="https://avatars.githubusercontent.com/u/99594065" />
         </v-avatar>
