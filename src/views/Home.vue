@@ -6,7 +6,9 @@
           <v-img src="https://avatars.githubusercontent.com/u/99594065" />
         </v-avatar>
         <v-spacer />
-        <h1 class="text-h3 text-lg-h1">Hello there.</h1>
+        <h1 class="text-h3 text-lg-h1 font-italic">Hello there.</h1>
+        <v-spacer />
+        <v-spacer />
         <v-spacer />
       </div>
 
