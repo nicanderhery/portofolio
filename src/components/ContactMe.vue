@@ -32,9 +32,9 @@
 
 <script lang="ts" setup>
 import emailjs from 'emailjs-com';
-import { Ref, ref } from 'vue';
+import { ref } from 'vue';
 
-const form: Ref<HTMLFormElement | null> = ref(null);
+const form = ref<HTMLFormElement | null>(null);
 const name = ref('');
 const email = ref('');
 const message = ref('');
