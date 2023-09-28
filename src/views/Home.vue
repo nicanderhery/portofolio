@@ -10,13 +10,13 @@
         <v-spacer />
       </div>
 
-      <AnimationSlot animation-type="slide-from-right" class="h-screen">
+      <AnimationSlot animation-type="slide-from-right" style="min-height: 100vh">
         <Introduction />
       </AnimationSlot>
-      <AnimationSlot animation-type="slide-from-left" class="h-screen">
+      <AnimationSlot animation-type="slide-from-left" style="min-height: 100vh">
         <TechnicalSkills />
       </AnimationSlot>
-      <AnimationSlot animation-type="slide-from-right" class="h-screen">
+      <AnimationSlot animation-type="slide-from-right">
         <ContactMe />
       </AnimationSlot>
     </v-responsive>
