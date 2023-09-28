@@ -1,51 +1,31 @@
 <template>
   <v-container class="fill-height">
     <v-responsive class="align-top text-center fill-height">
-      <v-avatar class="mb-8" size="16rem">
-        <v-img src="https://avatars.githubusercontent.com/u/99594065" />
-      </v-avatar>
+      <div class="h-screen d-flex flex-column justify-center align-center">
+        <v-avatar size="12rem">
+          <v-img src="https://avatars.githubusercontent.com/u/99594065" />
+        </v-avatar>
+        <v-spacer />
+        <h1 class="text-h3 text-lg-h1">Hello there.</h1>
+        <v-spacer />
+      </div>
 
-      <v-tabs v-model="tab" grow>
-        <v-tab :value="0">Introduction</v-tab>
-        <v-tab :value="1">Technical Skills</v-tab>
-        <v-tab :value="2">Contact Me</v-tab>
-      </v-tabs>
-
-      <v-window v-model="tab" class="fill-height" direction="vertical" @wheel="onWheel">
-        <v-window-item :value="0" style="height: inherit">
-          <Introduction />
-        </v-window-item>
-        <v-window-item :value="1" style="height: inherit">
-          <TechnicalSkills />
-        </v-window-item>
-        <v-window-item :value="2" style="height: inherit">
-          <ContactMe />
-        </v-window-item>
-      </v-window>
+      <AnimationSlot animation-type="slide-from-right" class="h-screen">
+        <Introduction />
+      </AnimationSlot>
+      <AnimationSlot animation-type="slide-from-left" class="h-screen">
+        <TechnicalSkills />
+      </AnimationSlot>
+      <AnimationSlot animation-type="slide-from-right" class="h-screen">
+        <ContactMe />
+      </AnimationSlot>
     </v-responsive>
   </v-container>
 </template>
 
 <script lang="ts" setup>
+import AnimationSlot from '@/components/AnimationSlot.vue';
 import ContactMe from '@/components/ContactMe.vue';
 import Introduction from '@/components/Introduction.vue';
 import TechnicalSkills from '@/components/TechnicalSkills.vue';
-import { ref } from 'vue';
-
-const tab = ref(0);
-let lastWheelTimestamp = 0;
-const onWheel = (e: WheelEvent) => {
-  // Delay wheel event to prevent scrolling too fast
-  const now = Date.now();
-  if (now - lastWheelTimestamp < 800) {
-    return;
-  }
-  lastWheelTimestamp = now;
-
-  if (e.deltaY < 0) {
-    tab.value = tab.value === 0 ? 2 : tab.value - 1;
-  } else {
-    tab.value = tab.value === 2 ? 0 : tab.value + 1;
-  }
-};
 </script>
