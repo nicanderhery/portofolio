@@ -5,7 +5,7 @@
       <v-text-field v-model="name" :rules="nameRules" label="Name" required />
       <v-text-field v-model="email" :rules="emailRules" label="Email" required />
       <v-textarea v-model="message" :rules="messageRules" label="Message" required />
-      <v-btn block type="submit">Send</v-btn>
+      <v-btn block class="mt-5" type="submit">Send</v-btn>
     </v-form>
     <v-dialog v-model="dialogSuccess" width="auto">
       <v-card>
