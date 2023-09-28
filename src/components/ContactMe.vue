@@ -7,24 +7,23 @@
       <v-textarea v-model="message" :rules="messageRules" label="Message" required />
       <v-btn block class="mt-5" type="submit">Send</v-btn>
     </v-form>
-    <v-dialog v-model="dialogSuccess" width="auto">
+    <v-dialog v-model="showDialog" persistent width="auto">
       <v-card>
-        <v-card-title class="headline">Thank you for your message!</v-card-title>
-        <v-card-text>We will get back to you as soon as possible.</v-card-text>
-        <v-card-actions>
-          <v-spacer />
-          <v-btn color="primary" @click="dialogSuccess = false">Close</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
-    <v-dialog v-model="dialogError" width="auto">
-      <v-card>
-        <v-card-title class="headline">Something went wrong!</v-card-title>
-        <v-card-text>Please try again later.</v-card-text>
-        <v-card-actions>
-          <v-spacer />
-          <v-btn color="primary" @click="dialogError = false">Close</v-btn>
-        </v-card-actions>
+        <v-progress-circular
+          v-if="loading"
+          class="mx-16 my-8"
+          color="primary"
+          indeterminate
+          size="64"
+        />
+        <div v-if="!loading">
+          <v-card-title class="headline">{{ messageTitle }}</v-card-title>
+          <v-card-text>{{ messageBody }}</v-card-text>
+          <v-card-actions>
+            <v-spacer />
+            <v-btn color="primary" @click="showDialog = false">Close</v-btn>
+          </v-card-actions>
+        </div>
       </v-card>
     </v-dialog>
   </v-container>
@@ -38,8 +37,10 @@ const form = ref<HTMLFormElement | null>(null);
 const name = ref('');
 const email = ref('');
 const message = ref('');
-const dialogSuccess = ref(false);
-const dialogError = ref(false);
+const messageTitle = ref('');
+const messageBody = ref('');
+const showDialog = ref(false);
+const loading = ref(false);
 
 const nameRules = [(name: string) => !!name || 'Name is required'];
 const emailRules = [
@@ -51,7 +52,7 @@ const messageRules = [
   (message: string) => message.length > 10 || 'Message must be more than 10 characters',
 ];
 
-const sendEmail = async () => {
+const sendEmail = () => {
   for (const rule of nameRules) {
     if (rule(name.value) !== true) {
       return;
@@ -68,6 +69,11 @@ const sendEmail = async () => {
     }
   }
 
+  messageTitle.value = '';
+  messageBody.value = '';
+  showDialog.value = true;
+  loading.value = true;
+
   const templateParams = {
     from_name: name.value,
     from_email: email.value,
@@ -75,18 +81,22 @@ const sendEmail = async () => {
     to_name: 'Nic',
   };
 
-  const success = await emailjs.send(
-    'nicanderhery-emailjs',
-    'nicanderhery-emailjs',
-    templateParams,
-    'Pn4UNFM0h-y1jG7nI',
-  );
-  if (success.status !== 200) {
-    dialogError.value = true;
-    return;
-  }
-
-  dialogSuccess.value = true;
-  form.value?.reset();
+  emailjs
+    .send('nicanderhery-emailjs', 'nicanderhery-emailjs', templateParams, 'Pn4UNFM0h-y1jG7nI')
+    .then((response) => {
+      if (response.status !== 200) {
+        throw '';
+      }
+      messageTitle.value = 'Success';
+      messageBody.value = 'Your message has been sent!';
+      form.value?.reset();
+    })
+    .catch(() => {
+      messageTitle.value = 'Error';
+      messageBody.value = 'There was an error sending your message. Please try again later.';
+    })
+    .finally(() => {
+      loading.value = false;
+    });
 };
 </script>
