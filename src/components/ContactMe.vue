@@ -1,6 +1,15 @@
 <template>
   <v-container>
     <h1 class="text-h4 text-lg-h3 text-center pb-5">Contact me through this form!</h1>
+    <h1 class="text-h4 text-lg-h3 text-center pb-5">or through the following media</h1>
+    <v-row class="elevation-3 py-4 bg-surface rounded-xl mb-5" justify="center" no-gutters>
+      <v-col v-for="social in socials" :key="social.name" cols="3">
+        <a :href="social.href">
+          <v-img :src="social.iconUrl" height="4rem" />
+          <p class="text-caption">{{ social.name }}</p>
+        </a>
+      </v-col>
+    </v-row>
     <v-form ref="form" @submit.prevent="sendEmail">
       <v-text-field v-model="name" :rules="nameRules" label="Name" required />
       <v-text-field v-model="email" :rules="emailRules" label="Email" required />
@@ -30,6 +39,7 @@
 </template>
 
 <script lang="ts" setup>
+import { socials } from '@/data';
 import emailjs from 'emailjs-com';
 import { ref } from 'vue';
 

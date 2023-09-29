@@ -8,6 +8,10 @@ interface Category {
   skills: Skill[];
 }
 
+interface Social extends Skill {
+  href: string;
+}
+
 export const categories: Category[] = [
   {
     name: 'Programming Languages',
@@ -123,5 +127,28 @@ export const categories: Category[] = [
         iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg',
       },
     ],
+  },
+];
+
+export const socials: Social[] = [
+  {
+    name: 'GitHub',
+    iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg',
+    href: 'https://github.com/nicanderhery',
+  },
+  {
+    name: 'LinkedIn',
+    iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg',
+    href: 'https://www.linkedin.com/in/nicanderhery/',
+  },
+  {
+    name: 'Instagram',
+    iconUrl: 'https://cdn-icons-png.flaticon.com/512/1409/1409946.png',
+    href: 'https://www.instagram.com/nicanderhery/',
+  },
+  {
+    name: 'Facebook',
+    iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/facebook/facebook-original.svg',
+    href: 'https://www.facebook.com/nicanderhery',
   },
 ];
