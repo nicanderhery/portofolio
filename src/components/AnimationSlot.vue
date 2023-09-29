@@ -1,7 +1,7 @@
 <template>
   <div ref="target">
     <transition :name="animationType">
-      <div v-appear="animate" class="animated-component">
+      <div v-appear="animated" class="animated-component">
         <slot />
       </div>
     </transition>
@@ -13,10 +13,12 @@
 import { onMounted, ref } from 'vue';
 
 const target = ref<HTMLElement | null>(null);
-const animate = ref(false);
+const animated = ref(false);
 const observer = new IntersectionObserver(
   ([entry]) => {
-    animate.value = entry.isIntersecting;
+    if (entry.isIntersecting && !animated.value) {
+      animated.value = entry.isIntersecting;
+    }
   },
   {
     threshold: 0.1,
