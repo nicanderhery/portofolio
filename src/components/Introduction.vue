@@ -16,8 +16,36 @@
       continuously expand my knowledge in the dynamic world of computer science.
     </h1>
   </v-container>
+
+  <v-container>
+    <v-btn @click="showDialog = true">Download my CV</v-btn>
+    <v-dialog v-model="showDialog" width="auto">
+      <v-card>
+        <v-card-title class="headline">Choose your language</v-card-title>
+        <v-card-actions>
+          <v-btn color="primary" @click="downloadCV">English</v-btn>
+          <v-spacer />
+          <v-btn color="primary" @click="downloadCV('de')">German</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+  </v-container>
 </template>
 
 <script lang="ts" setup>
-//
+import { ref } from 'vue';
+
+const showDialog = ref(false);
+
+const downloadCV = (languange?: string) => {
+  if (typeof languange !== 'string') {
+    languange = 'en';
+  }
+  const link = document.createElement('a');
+  link.href = 'hery_cv';
+  link.href += `_${languange}`;
+  link.href += '.pdf';
+  link.target = '_blank';
+  link.click();
+};
 </script>
