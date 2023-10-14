@@ -73,6 +73,10 @@ export const categories: Category[] = [
         name: 'Node.js',
         iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
       },
+      {
+        name: 'PHP',
+        iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg',
+      },
     ],
   },
   {
