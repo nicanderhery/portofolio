@@ -24,9 +24,9 @@
         <v-card>
           <v-card-title class="headline">Choose your language</v-card-title>
           <v-card-actions>
-            <v-btn color="primary" @click="downloadCV">English</v-btn>
+            <v-btn @click="downloadCV">English</v-btn>
             <v-spacer />
-            <v-btn color="primary" @click="downloadCV('de')">German</v-btn>
+            <v-btn @click="downloadCV('de')">German</v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
