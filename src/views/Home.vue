@@ -13,13 +13,13 @@
       </div>
 
       <AnimationSlot animation-type="slide-from-right" style="min-height: 100vh">
-        <Introduction />
+        <Introduction :class="widthClass" />
       </AnimationSlot>
       <AnimationSlot animation-type="slide-from-left" style="min-height: 100vh">
-        <TechnicalSkills />
+        <TechnicalSkills :class="widthClass" />
       </AnimationSlot>
       <AnimationSlot animation-type="slide-from-right">
-        <ContactMe />
+        <ContactMe :class="widthClass" />
       </AnimationSlot>
     </v-responsive>
   </v-container>
@@ -30,4 +30,16 @@ import AnimationSlot from '@/components/AnimationSlot.vue';
 import ContactMe from '@/components/ContactMe.vue';
 import Introduction from '@/components/Introduction.vue';
 import TechnicalSkills from '@/components/TechnicalSkills.vue';
+import { onMounted, onUnmounted, ref } from 'vue';
+
+const widthClass = ref('');
+const resizeWidth = (width: number) => {
+  width > 1280 ? (widthClass.value = 'w-75') : (widthClass.value = '');
+};
+onMounted(() => {
+  window.addEventListener('resize', () => resizeWidth(window.innerWidth));
+});
+onUnmounted(() => {
+  window.removeEventListener('resize', () => resizeWidth(window.innerWidth));
+});
 </script>
