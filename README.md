@@ -1,69 +1,53 @@
-# base
+# Agustinus Nicander Hery's Portfolio Website
 
-## Project setup
+## Overview
 
-```
-# yarn
-yarn
+This is my personal portfolio website, where I showcase my work, projects, and skills. It's designed to provide an overview of my background, experience, and the projects I've worked on.
 
-# npm
-npm install
+![Screenshot of Portfolio Website](screenshot.png) TODO: Update screenshot
 
-# pnpm
-pnpm install
+## Features
 
-# bun
-bun install
-```
+- **Projects:** Explore a collection of my projects, including descriptions and links. TODO: Add project details.
+- **Skills:** Learn about my technical skills and competencies.
+- **Contact:** Get in touch with me through the provided contact form or social media links.
+- **Resume:** Download my resume to learn more about my qualifications.
 
-### Compiles and hot-reloads for development
+## Technologies Used
 
-```
-# yarn
-yarn dev
+- HTML
+- CSS
+- TypeScript
+- Vue.js
+- Vuetify
 
-# npm
-npm run dev
+## Getting Started
 
-# pnpm
-pnpm dev
+### Development
 
-# bun
-pnpm run dev
-```
+1. Clone this repository.
+2. Run npm run dev in your terminal to start the development server.
+3. Navigate to http://localhost:3000 in your browser.
 
-### Compiles and minifies for production
+### Production
 
-```
-# yarn
-yarn build
+5. Run npm run build to build the project for production.
+6. Run npm run serve to serve the production build.
 
-# npm
-npm run build
+## How to Use
 
-# pnpm
-pnpm build
+- Browse through the different sections to learn about my projects, skills, and contact information.
+- Click on project links to view project details or GitHub repositories. TODO: Add project details.
+- Use the contact form to get in touch with me.
 
-# bun
-pnpm run build
-```
+## Contact
 
-### Lints and fixes files
+If you have any questions or would like to collaborate, you can reach out to me through one of the following methods:
 
-```
-# yarn
-yarn lint
+- Email: nicanderhery@gmail.com
+- LinkedIn: linkedin.com/in/nicanderhery
+- GitHub: github.com/nicanderhery
 
-# npm
-npm run lint
+## License
 
-# pnpm
-pnpm lint
-
-# bun
-pnpm run lint
-```
-
-### Customize configuration
-
-See [Configuration Reference](https://vitejs.dev/config/).
+This project is open-source and available under the [MIT License](LICENSE).
